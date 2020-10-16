@@ -2,19 +2,20 @@ import math
 import numpy
 import scipy
 
-# class DIST:
-#     def __init__(self, ):
-#         pass
+class DIST:
+    def __init__(self, ):
+        pass
 
 class KNN:
     def __init__(self, k):
         self.k = k
 
     def fit(self, X_train, y_train):
-        pass
+        self.X_train = X_train
+        self.y_train = y_train
 
     def predict(self, X_test):
-        pass
+        
 
 
 # create train_test split
