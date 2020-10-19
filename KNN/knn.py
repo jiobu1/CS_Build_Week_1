@@ -27,28 +27,41 @@ class KNN:
     def predict(self, X_test):
         """
         """
-        y_pred = [self.predict(x) for x in X]
+        distances = self._get_distance(X_test)
+        return self._get_labels(distances)
 
-        return np.array(y_pred)
-
-    def euclidean_distance(self, point1, point2):
+    def euclidean_distance(self, point1, point2, length):
         """
         """
+        distance = 0
+        for x in range(length):
+            distance += (point1[x]-point2[x])**2
+        return np.sqrt(distance)
 
-        return np.linalg.norm(np.array(point1) - np.array(point2))
 
-    def _get_neighbors(self, x):
+    def _get_distance(self, X_test):
         """
-
         """
-        # 1: Find the distance between each item in X_test and all items in the training set
-        # For each index in X_test
-        
+        length = X_test.shape[1]
+        distances = []
+        for idx in range(len(X_test)):
 
-        # sort by indices and capture only to chosen k
+            # Initialize empty distance array
+            # Loop through each row in x_train
+            for row in range(len(self.X_train)):
+                #find the euclidean distance and append to distance list
+                dist = self.euclidean_distance(self.X_train.iloc[row], X_test.iloc[idx], length)
+                distances.append((row, dist))
 
-        # capture the labels 
-    
+        return distances
+
+    def _get_labels(self, distances):
+        y_indices = np.argsort(distances)[:self.k]
+        k_nearest_classes = [self.y_train[i] for i in y_indices]
+        y_pred = np.argmax(np.bincount(k_nearest_classes))
+
+        return y_pred
+
 
 
 
