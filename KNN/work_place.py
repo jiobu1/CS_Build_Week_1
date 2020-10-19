@@ -38,7 +38,7 @@ def get_neighbors(distances, y_train, k):
     y_pred = np.argmax(np.bincount(k_nearest_classes))
     #https://www.w3resource.com/python-exercises/numpy/python-numpy-random-exercise-13.php
 
-    pass
+    return y_pred
 
 
 
