@@ -63,16 +63,6 @@ class KNN:
         return y_pred
 
 
-
-
-
-
-
-
-
-
-
-
 # create train_test split
 # create normalizing function
 # create accuracy function
