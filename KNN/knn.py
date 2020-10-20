@@ -43,30 +43,37 @@ class KNN:
         """
         """
         length = X_test.shape[1]
+         # Initialize empty distance array
         distances = []
         for idx in range(len(X_test)):
 
-            # Initialize empty distance array
             # Loop through each row in x_train
             for row in range(len(self.X_train)):
                 #find the euclidean distance and append to distance list
                 dist = self.euclidean_distance(self.X_train.iloc[row], X_test.iloc[idx], length)
-                distances.append((row, dist))
+                distances.append(dist)
 
         return distances
 
     def _get_labels(self, distances):
+        """
+        """
+        # sort distances and pick up to nearest neighbor
         y_indices = np.argsort(distances)[:self.k]
+        # pick the classes based on the nearest neighbors
         k_nearest_classes = [self.y_train[i] for i in y_indices]
-        y_pred = np.argmax(np.bincount(k_nearest_classes))
+        # get the most common class and assign
+        y_pred = [scipy.stats.mode(k_nearest_classes)][0][0][0]
 
         return y_pred
 
 
+# TO DO:
 # create train_test split
 # create normalizing function
 # create accuracy function
 # create different distance choices
+# create doc strings
 
 
 # https://www.youtube.com/watch?v=ngLyX54e1LU
