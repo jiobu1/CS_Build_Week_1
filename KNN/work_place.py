@@ -21,9 +21,9 @@ def get_distances(X_test, X_train):
     for idx in range(len(X_test)):
 
         # Loop through each row in x_train
-        for row in range(len(X_train)):
+        for row in X_train:
             #find the euclidean distance and append to distance list
-            dist = euclidean_distance(X_train.iloc[row], X_test.iloc[idx], length)
+            dist = euclidean_distance(row, X_test[idx], length)
             distances.append(dist)
     return distances
 
@@ -36,10 +36,10 @@ def get_labels(distances, y_train, k):
     y_pred =  [stats.mode(k_nearest_classes)][0][0][0]
     return y_pred
 
-X_train = [[0,3,0],[2,0,0],[9,4,2],[1,7,4],[8,12,3]]
-X_train = pd.DataFrame(X_train)
-X_test = [[9,4,2]]
-X_test = pd.DataFrame(X_test)
+X_train = np.array([[0,3,0],[2,0,0],[9,4,2],[1,7,4],[8,12,3]])
+# X_train = pd.DataFrame(X_train)
+X_test = np.array([[9,4,2]])
+# X_test = pd.DataFrame(X_test)
 y_train = ['a','a','l', 'a','l']
 y_train = np.array(y_train)
 

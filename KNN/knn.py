@@ -7,9 +7,6 @@ class DIST:
         self.x1 = x1
         self.x2 = x2
 
-    def euclidean_distance(self, x1, x2):
-        return np.sqrt(np.sum((self.x1 - self.x2)**2))
-
 
 class KNN:
     """
@@ -48,9 +45,9 @@ class KNN:
         for idx in range(len(X_test)):
 
             # Loop through each row in x_train
-            for row in range(len(self.X_train)):
+            for row in self.X_train:
                 #find the euclidean distance and append to distance list
-                dist = self.euclidean_distance(self.X_train.iloc[row], X_test.iloc[idx], length)
+                dist = self.euclidean_distance(row, X_test[idx], length)
                 distances.append(dist)
 
         return distances
@@ -69,8 +66,9 @@ class KNN:
 
 
 # TO DO:
+# create virtual environment -> pandas, numpy, scipy, sklearn
 # create train_test split
-# create normalizing function
+# create normalizing function -> scale function
 # create accuracy function
 # create different distance choices
 # create doc strings
@@ -81,3 +79,4 @@ class KNN:
 # https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_knn_algorithm_finding_nearest_neighbors.htm
 
 
+# pipenv run pip freeze > requirements.txt
