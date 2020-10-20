@@ -2,6 +2,7 @@ import math
 import numpy as np
 import scipy
 
+
 class DIST:
     def __init__(self, x1, x2):
         self.x1 = x1
@@ -79,4 +80,3 @@ class KNN:
 # https://www.tutorialspoint.com/machine_learning_with_python/machine_learning_with_python_knn_algorithm_finding_nearest_neighbors.htm
 
 
-# pipenv run pip freeze > requirements.txt
