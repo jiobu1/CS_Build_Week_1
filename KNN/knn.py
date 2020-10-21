@@ -1,6 +1,7 @@
 import math
 import numpy as np
-import scipy
+from scipy import stats
+
 
 
 class DIST:
@@ -44,26 +45,30 @@ class KNN:
          # Initialize empty distance array
         distances = []
         for idx in range(len(X_test)):
-
+            # record X_test id and initialize an empty array to hold distances
+            distances.append([ X_test[idx], [] ])
             # Loop through each row in x_train
             for row in self.X_train:
                 #find the euclidean distance and append to distance list
                 dist = self.euclidean_distance(row, X_test[idx], length)
-                distances.append(dist)
+                distances[idx][1].append(dist)
 
         return distances
 
     def _get_labels(self, distances):
         """
         """
-        # sort distances and pick up to nearest neighbor
-        y_indices = np.argsort(distances)[:self.k]
-        # pick the classes based on the nearest neighbors
-        k_nearest_classes = [self.y_train[i] for i in y_indices]
-        # get the most common class and assign
-        y_pred = [scipy.stats.mode(k_nearest_classes)][0][0][0]
-
-        return y_pred
+        labels = []
+        for row in range(len(distances)):
+            # sort distances
+            distance = distances[row]
+            y_indices = np.argsort(distance[1])[:self.k] #sort distances and record up to k values
+            #find the classes that correspond with nearest neighbors
+            k_nearest_classes = [self.y_train[i%len(self.y_train)] for i in y_indices]
+            # make a predication based on the mode of the classes
+            pred = [stats.mode(k_nearest_classes)][0][0][0]
+            labels.append(pred)
+        return labels
 
 
 # TO DO:

@@ -22,26 +22,30 @@ def get_distances(X_test, X_train):
      # Initialize empty distance array
     distances = []
     for idx in range(len(X_test)):
-
+        distances.append([ X_test[idx], [] ])
         # Loop through each row in x_train
         for row in X_train:
             #find the euclidean distance and append to distance list
             dist = euclidean_distance(row, X_test[idx], length)
-            distances.append(dist)
+            distances[idx][1].append(dist)
     return distances
 
 def get_labels(distances, y_train, k):
-    # sort distances
-    y_indices = np.argsort(distances)[:k] #sort distances and record up to k values
-    #find the classes that correspond with nearest neighbors
-    k_nearest_classes = [y_train[i] for i in y_indices]
-    # make a predication based on the mode of the classes
-    y_pred =  [stats.mode(k_nearest_classes)]
-    return y_pred
+    labels = []
+    for row in range(len(distances)):
+        # sort distances
+        distance = distances[row]
+        y_indices = np.argsort(distance[1])[:k] #sort distances and record up to k values
+        #find the classes that correspond with nearest neighbors
+        k_nearest_classes = [y_train[i%len(y_train)] for i in y_indices]
+        # make a predication based on the mode of the classes
+        y_pred = [stats.mode(k_nearest_classes)][0][0][0]
+        labels.append(y_pred)
+    return labels
 
 # X_train = np.array([[0,3,0],[2,0,0],[9,4,2],[1,7,4],[8,12,3]])
 # # X_train = pd.DataFrame(X_train)
-# X_test = np.array([[9,4,2]])
+# X_test = np.array([[9,4,2], [0,3,0]])
 # # X_test = pd.DataFrame(X_test)
 # y_train = ['a','a','l', 'a','l']
 # y_train = np.array(y_train)
@@ -60,6 +64,6 @@ y = iris.target # classes
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state=42) # for reproducible results
 
 distances = get_distances(X_test, X_train)
-# print("Distances: ", distances)
+print("Distances: ", distances)
 labels = get_labels(distances, y_train, 3)
 print("Labels: ", labels)

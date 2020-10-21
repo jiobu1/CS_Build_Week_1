@@ -63,6 +63,6 @@ print("Prediction", predict)
 #4. Accuracy Score
 print(f"KNN model accuracy: {accuracy_score(y_test, predict)}")
 
-# y_pred
-y_pred = np_clf.predict([X_test[0]])
-print("y_pred", y_pred)
+# # y_pred
+# y_pred = np_clf.predict([X_test[0]])
+# print("y_pred", y_pred)
