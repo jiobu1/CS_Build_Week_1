@@ -29,7 +29,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, rando
 # Sklearn - KNN Classifier
 
 #1.Choose K based on results from elbow method
-clf = KNeighborsClassifier(n_neighbors=3)
+clf = KNeighborsClassifier(n_neighbors=13)
 
 # Fit
 clf.fit(X_train, y_train)
@@ -50,7 +50,7 @@ print("y_pred", y_pred)
 
 # KNN (build model)
 #1. Instantiate model
-np_clf = KNN(k=3)
+np_clf = KNN(k=13)
 
 #2. Fit
 np_clf.fit(X_train, y_train)
