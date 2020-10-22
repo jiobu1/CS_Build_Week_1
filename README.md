@@ -26,7 +26,8 @@ from knn import KNN
   * Make prediction on X_test
      predict = clf.predict(X_test)
 
-
+### Read More
+You can read more about KNN here https://jishaobukwelu.medium.com/whats-the-knn-74e84458bd24
 
 
 
