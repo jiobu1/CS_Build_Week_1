@@ -30,9 +30,8 @@ from knn import KNN
      ``
 
 
-### Read More
+###Read More
 You can read more about KNN here https://jishaobukwelu.medium.com/whats-the-knn-74e84458bd24
-
 
 
 
