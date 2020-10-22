@@ -18,11 +18,11 @@ from knn import KNN
 ## Usage
 * Initialize algorithm by passing through k(nearest neighbors)
    
-   `clf = KNN(k=3)
+   ``clf = KNN(k=3)``
   
  
  * Fit the model
-    `clf.fit(X_train, y_train)
+    ``clf.fit(X_train, y_train)``
     
   * Make prediction on X_test
   
