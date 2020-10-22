@@ -17,14 +17,18 @@ from knn import KNN
 
 ## Usage
 * Initialize algorithm by passing through k(nearest neighbors)
-   clf = KNN(k=3)
+   
+   `clf = KNN(k=3)
   
  
  * Fit the model
-    clf.fit(X_train, y_train)
+    `clf.fit(X_train, y_train)
     
   * Make prediction on X_test
-     predict = clf.predict(X_test)
+  
+     ``predict = clf.predict(X_test)
+     ``
+
 
 ### Read More
 You can read more about KNN here https://jishaobukwelu.medium.com/whats-the-knn-74e84458bd24
