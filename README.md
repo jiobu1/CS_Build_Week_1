@@ -29,5 +29,11 @@ from knn import KNN
 ### Read More
 You can read more about KNN here https://jishaobukwelu.medium.com/whats-the-knn-74e84458bd24
 
+TO DO:
+- train/test split
+- accuracy
+- add more distance measures
+- create anexploratory visuals 
+
 
 
