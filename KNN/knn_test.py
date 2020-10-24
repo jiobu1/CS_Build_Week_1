@@ -63,6 +63,8 @@ print("Prediction", predict)
 #4. Accuracy Score
 print(f"KNN model accuracy: {accuracy_score(y_test, predict)}")
 
+##########################################################################
+
 # Checking Prediction Power
 # 0 = setosa, 1 = versicolor, 2 = viriginca
 classes = {0:'setosa', 1:'versicolor', 2:'virginica'}
