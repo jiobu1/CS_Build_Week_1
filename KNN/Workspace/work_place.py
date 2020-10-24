@@ -43,25 +43,25 @@ def get_labels(distances, y_train, k):
         labels.append(y_pred)
     return labels
 
-# X_train = np.array([[0,3,0],[2,0,0],[9,4,2],[1,7,4],[8,12,3]])
-# # X_train = pd.DataFrame(X_train)
-# X_test = np.array([[9,4,2], [0,3,0]])
-# # X_test = pd.DataFrame(X_test)
-# y_train = ['a','a','l', 'a','l']
-# y_train = np.array(y_train)
+X_train = np.array([[0,3,0],[2,0,0],[9,4,2],[1,7,4],[8,12,3]])
+# X_train = pd.DataFrame(X_train)
+X_test = np.array([[9,4,2], [0,3,0]])
+# X_test = pd.DataFrame(X_test)
+y_train = ['a','a','l', 'a','l']
+y_train = np.array(y_train)
 
 
 
-# Load Data
-iris = load_iris()
+# # Load Data
+# iris = load_iris()
 
-# Separate into target from features
-#Scale features
-X = scale(iris.data)
-y = iris.target # classes
+# # Separate into target from features
+# #Scale features
+# X = scale(iris.data)
+# y = iris.target # classes
 
-# Train/Test split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state=42) # for reproducible results
+# # Train/Test split
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state=42) # for reproducible results
 
 distances = get_distances(X_test, X_train)
 print("Distances: ", distances)
