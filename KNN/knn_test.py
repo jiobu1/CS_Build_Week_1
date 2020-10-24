@@ -63,6 +63,25 @@ print("Prediction", predict)
 #4. Accuracy Score
 print(f"KNN model accuracy: {accuracy_score(y_test, predict)}")
 
-# # y_pred
-# y_pred = np_clf.predict([X_test[0]])
-# print("y_pred", y_pred)
+# Checking Prediction Power
+# 0 = setosa, 1 = versicolor, 2 = viriginca
+classes = {0:'setosa', 1:'versicolor', 2:'virginica'}
+
+# Making prediction on some new data
+# Random observation
+
+X_new = np.array([
+    [3, 4, 5, 2],
+    [5, 4, 2, 2]])
+
+# Sklearn
+y_predict_s = clf.predict(X_new)
+print(f"Vector 1:{classes[y_predict_s[0]]}")
+print(f"Vector 2:{classes[y_predict_s[1]]}")
+
+
+# Python
+y_predict_p = np_clf.predict(X_new)
+
+print(f"Vector 1:{classes[y_predict_p[0]]}")
+print(f"Vector 2:{classes[y_predict_p[1]]}")
